@@ -1,2 +1,2 @@
 # first
-trial rep
+bro log out when you finish :)
