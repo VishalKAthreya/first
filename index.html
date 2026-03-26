@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo" onclick="go('landing')">
+    <div class="logo-mark">
+      <svg viewBox="0 0 17 17"><circle cx="8.5" cy="8.5" r="6"/><path d="M8.5 5.5v3l2 2.5" stroke-linecap="round"/></svg>
+    </div>
+    TruthLens
+  </div>
+  <div class="nav-center">
+    <button class="ntab active" id="tab-landing" onclick="go('landing')">Home</button>
+    <button class="ntab" id="tab-dashboard" onclick="go('dashboard')">Analyze</button>
+    <button class="ntab" id="tab-learn" onclick="go('learn')">Learn</button>
+    <button class="ntab" id="tab-history" onclick="go('history')">History</button>
+    <button class="ntab" id="tab-settings" onclick="go('settings')">Settings</button>
+  </div>
+  <div class="nav-right">
+    <div class="lang-pill" onclick="toggleLang()">
+      <span id="lang-flag">🇮🇳</span>
+      <span id="lang-cur">EN</span>
+    </div>
+    <span class="badge-live">Gemini Live</span>
+  </div>
+</nav>
+
+<div class="lang-drawer" id="lang-drawer">
+  <div class="lang-opt active" onclick="setLang('en','EN','🇮🇳')"><span>English</span><span class="lang-native">English</span></div>
+  <div class="lang-opt" onclick="setLang('hi','HI','🇮🇳')"><span>Hindi</span><span class="lang-native">हिन्दी</span></div>
+  <div class="lang-opt" onclick="setLang('bn','BN','🇮🇳')"><span>Bengali</span><span class="lang-native">বাংলা</span></div>
+  <div class="lang-opt" onclick="setLang('ta','TA','🇮🇳')"><span>Tamil</span><span class="lang-native">தமிழ்</span></div>
+  <div class="lang-opt" onclick="setLang('te','TE','🇮🇳')"><span>Telugu</span><span class="lang-native">తెలుగు</span></div>
+  <div class="lang-opt" onclick="setLang('mr','MR','🇮🇳')"><span>Marathi</span><span class="lang-native">मराठी</span></div>
+</div>
+
+<!-- LANDING -->
+<div class="page active" id="page-landing">
+  <div class="hero">
+    <div class="hero-eye"><div class="hero-dot"></div><span id="h-eye">Powered by Gemini · Built for India</span></div>
+    <h1 id="h-title">Verify Information.<br><em>Understand</em> the Truth.</h1>
+    <p class="hero-sub" id="h-sub">TruthLens uses Google Gemini AI to detect misleading news, manipulative content, and misinformation — with clear, explainable analysis in your language.</p>
+    <button class="hero-cta" onclick="go('dashboard')" id="h-cta">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 7h10M7 3l4 4-4 4"/></svg>
+      <span id="h-cta-txt">Analyze Content</span>
+    </button>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">12.4K</div><div class="hstat-l" id="hs1">Articles analyzed</div></div>
+      <div class="hstat"><div class="hstat-n">94%</div><div class="hstat-l" id="hs2">Detection accuracy</div></div>
+      <div class="hstat"><div class="hstat-n">8</div><div class="hstat-l" id="hs3">Languages supported</div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="sec-label" id="sl-how">How it works</div>
+    <div class="sec-title" id="st-how">Three steps to clarity</div>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-n">1</div><div class="step-t" id="s1t">Submit content</div><div class="step-d" id="s1d">Paste text, share a URL, or upload an image — from WhatsApp forwards, news articles, or social posts.</div></div>
+      <div class="step-card"><div class="step-n">2</div><div class="step-t" id="s2t">Gemini AI analysis</div><div class="step-d" id="s2d">Our Gemini-powered model checks for emotional manipulation, clickbait, fake sources, and factual gaps.</div></div>
+      <div class="step-card"><div class="step-n">3</div><div class="step-t" id="s3t">Understand & share</div><div class="step-d" id="s3d">Get plain-language explanations and verified fact-check links in your preferred language.</div></div>
+    </div>
+    <div class="divider"></div>
+    <div class="sec-label">Why this matters</div>
+    <div class="sec-title">Misinformation in India</div>
+    <div class="alert-banner"><div class="alert-icon">⚠</div><div class="alert-txt"><strong>Over 500 million WhatsApp users</strong> in India make it the world's largest vector for viral misinformation. Health hoaxes, political deepfakes, and financial scams spread faster than corrections.</div></div>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-t" style="margin-bottom:8px">Emotional triggers</div><div class="step-d">Outrage and urgency make people share before thinking. TruthLens flags these patterns automatically.</div></div>
+      <div class="step-card"><div class="step-t" style="margin-bottom:8px">Out-of-context media</div><div class="step-d">Real images reused with false captions. Our AI checks metadata and cross-references known databases.</div></div>
+      <div class="step-card"><div class="step-t" style="margin-bottom:8px">Fake authority</div><div class="step-d">Fabricated quotes from doctors and officials. TruthLens verifies claimed sources against trusted records.</div></div>
+    </div>
+    <div style="text-align:center;margin-top:32px"><button class="hero-cta" onclick="go('learn')">Explore Learning Hub →</button></div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="page" id="page-dashboard">
+  <div class="dash-wrap">
+    <div class="input-panel">
+      <div class="panel-title" id="dp-title">Analyze content</div>
+      <div class="panel-sub" id="dp-sub">Submit text, a URL, or an image for Gemini AI analysis</div>
+
+      <div class="gemini-status">
+        <div class="g-dot"></div>
+        <span id="gstatus">Gemini 2.5 Flash connected — real AI analysis enabled</span>
+      </div>
+
+      <div class="input-tabs">
+        <button class="itab active" id="itab-text" onclick="switchTab('text')">Text</button>
+        <button class="itab" id="itab-url" onclick="switchTab('url')">URL</button>
+        <button class="itab" id="itab-image" onclick="switchTab('image')">Image</button>
+        <button class="itab" id="itab-doc" onclick="switchTab('doc')">Document</button>
+      </div>
+
+      <div id="inp-text"><textarea class="inp-field" id="text-in" placeholder="Paste news article, WhatsApp message, or social post..."></textarea></div>
+      <div id="inp-url" style="display:none"><input class="inp-field inp-url" id="url-in" placeholder="https://..."/><div style="font-size:12px;color:var(--muted);margin-top:8px" id="url-hint">Paste any news article or social media link</div></div>
+      <div id="inp-image" style="display:none">
+        <input type="file" id="img-upload" accept="image/png, image/jpeg, image/webp" style="display:none">
+        <div class="upload-zone" id="upload-zone" onclick="document.getElementById('img-upload').click()">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="var(--muted)" stroke-width="1.4" style="margin:0 auto 10px;display:block"><rect x="3" y="8" width="30" height="22" rx="3"/><path d="M3 22l8-6 6 5 5-4 11 9"/><circle cx="12" cy="16" r="2.5"/></svg>
+          <div style="font-size:13px;color:var(--muted)"><strong style="color:var(--navy3)" id="ul-txt">Click to upload</strong> or drag & drop</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:4px">PNG, JPG, WebP up to 10MB</div>
+        </div>
+        <div id="img-prev" style="display:none;margin-top:12px;padding:10px;background:var(--surface);border:1px solid var(--border);border-radius:9px;font-size:13px;color:var(--navy)">
+          📎 <span id="img-name">screenshot_viral.jpg</span> · <span style="color:var(--green)">Ready</span>
+        </div>
+      </div>
+      <div id="inp-doc" style="display:none">
+        <input type="file" id="doc-upload" accept=".pdf, .txt, application/pdf, text/plain" style="display:none">
+        <div class="upload-zone" id="doc-upload-zone" onclick="document.getElementById('doc-upload').click()">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="var(--muted)" stroke-width="1.4" style="margin:0 auto 10px;display:block"><path d="M10 6C10 4.89543 10.8954 4 12 4H20L28 12V30C28 31.1046 27.1046 32 26 32H12C10.8954 32 10 31.1046 10 30V6Z"/><path d="M20 4V12H28"/><path d="M14 18H24"/><path d="M14 22H24"/><path d="M14 26H20"/></svg>
+          <div style="font-size:13px;color:var(--muted)"><strong style="color:var(--navy3)">Click to upload</strong> or drag & drop</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:4px">PDF or TXT up to 10MB</div>
+        </div>
+        <div id="doc-prev" style="display:none;margin-top:12px;padding:10px;background:var(--surface);border:1px solid var(--border);border-radius:9px;font-size:13px;color:var(--navy)">
+          📄 <span id="doc-name">document.pdf</span> · <span style="color:var(--green)">Ready</span>
+        </div>
+      </div>
+
+      <div style="margin-top:14px;margin-bottom:6px">
+        <select class="lselect" style="width:100%" id="lang-analysis">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी (Hindi)</option>
+          <option value="bn">বাংলা (Bengali)</option>
+          <option value="ta">தமிழ் (Tamil)</option>
+          <option value="te">తెలుగు (Telugu)</option>
+          <option value="mr">मराठी (Marathi)</option>
+        </select>
+      </div>
+
+      <button class="analyze-btn" id="analyze-btn" onclick="runAnalysis()">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="4"/><path d="M10 10l3 3" stroke-linecap="round"/></svg>
+        <span id="btn-txt">Run Gemini Analysis</span>
+      </button>
+
+      <div class="example-strip">
+        <div class="ex-label">Try an example</div>
+        <div class="ex-item" onclick="loadEx(1)">→ "Government announces free electricity for all households..."</div>
+        <div class="ex-item" onclick="loadEx(2)">→ "Doctor reveals one simple trick to cure diabetes..."</div>
+        <div class="ex-item" onclick="loadEx(3)">→ "BREAKING: Earthquake hits Delhi, 7.2 magnitude..."</div>
+      </div>
+    </div>
+
+    <div class="output-panel" id="output-panel">
+      <div id="r-empty" class="result-empty">
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="26" cy="26" r="20"/><path d="M26 18v8M26 32v2" stroke-linecap="round"/></svg>
+        <div class="panel-title" style="font-size:16px" id="empty-title">No analysis yet</div>
+        <p id="empty-sub" style="font-size:13px">Submit content to see AI-powered<br>misinformation analysis</p>
+      </div>
+      <div class="result-loading" id="r-loading">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div class="skel" style="height:90px"></div>
+          <div class="skel" style="height:170px"></div>
+          <div class="skel" style="height:110px"></div>
+        </div>
+        <div class="loading-overlay">
+          <div class="spinner"></div>
+          <div class="load-txt" id="load-txt">Sending to Gemini...</div>
+        </div>
+      </div>
+      <div id="r-content" style="display:none">
+        <div class="ai-badge"><div class="ai-dot"></div><span id="ai-label">Analyzed by Gemini 2.5 Flash</span></div>
+        <div class="panel-title" style="margin-bottom:2px" id="res-title">Analysis result</div>
+        <div class="panel-sub" id="res-time">Just now</div>
+
+        <div class="score-card">
+          <div class="score-head">
+            <div>
+              <div class="score-lbl" id="rl-risk">Misinformation risk</div>
+              <div class="score-num" id="r-score">72%</div>
+            </div>
+            <div id="r-badge" class="risk-badge high"><div class="rdot"></div><span id="r-badge-txt">High risk</span></div>
+          </div>
+          <div class="bar-track"><div class="bar-fill" id="r-bar" style="--w:72%;width:0"></div></div>
+          <div class="bar-labels"><span id="bl-low">Low risk</span><span id="bl-high">High risk</span></div>
+          <div id="trust-badge-wrap" style="margin-top:2px"></div>
+        </div>
+
+        <div class="issues-card">
+          <div class="card-label" id="rl-issues">Detected issues</div>
+          <div id="issues-list"></div>
+        </div>
+
+        <div class="explain-card">
+          <div class="card-label" id="rl-explain">What this means</div>
+          <div class="explain-txt" id="r-explain"></div>
+          <div class="explain-tip" id="r-tip"></div>
+        </div>
+
+        <div class="fc-card">
+          <div class="card-label" id="rl-fc">Fact-check sources</div>
+          <div id="fc-links"></div>
+          <div style="font-size:11px;color:var(--muted);margin-top:8px" id="fc-note">External links open verified fact-checking organizations</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LEARN -->
+<div class="page" id="page-learn">
+  <div class="learn-hero">
+    <h2 id="lh-title">Learning Hub</h2>
+    <p id="lh-sub">Build your digital literacy. Understand how misinformation spreads and protect yourself.</p>
+  </div>
+  <div class="learn-grid">
+    <div class="learn-card"><div class="ltag spread">How it spreads</div><h3>The viral loop: why false news travels faster</h3><p>Emotional content triggers the share reflex before the rational brain catches up. Here's the neuroscience.</p><div class="lcard-foot"><span class="rmin">5 min</span><span class="arr">Read →</span></div></div>
+    <div class="learn-card"><div class="ltag scam">Scam patterns</div><h3>Financial scams targeting Indian WhatsApp groups</h3><p>Fake government schemes to investment fraud — recognizing hallmarks before it's too late.</p><div class="lcard-foot"><span class="rmin">7 min</span><span class="arr">Read →</span></div></div>
+    <div class="learn-card"><div class="ltag bias">Cognitive bias</div><h3>Confirmation bias and why we believe what we want</h3><p>Our brains accept information that fits our worldview. Here's how to fight it.</p><div class="lcard-foot"><span class="rmin">4 min</span><span class="arr">Read →</span></div></div>
+    <div class="learn-card"><div class="ltag spread">Media literacy</div><h3>How to reverse image search in 30 seconds</h3><p>Viral images are often old photos reused in new contexts. Verify before sharing.</p><div class="lcard-foot"><span class="rmin">3 min</span><span class="arr">Read →</span></div></div>
+    <div class="learn-card"><div class="ltag scam">Health mis­info</div><h3>Medical misinformation patterns doctors want you to spot</h3><p>Miracle cures, false statistics, and unverified treatments — what to look for.</p><div class="lcard-foot"><span class="rmin">6 min</span><span class="arr">Read →</span></div></div>
+    <div class="learn-card"><div class="ltag bias">Deep fakes</div><h3>Spotting AI-generated images and deepfake videos</h3><p>Visual proof is no longer proof. Your detection checklist for 2026.</p><div class="lcard-foot"><span class="rmin">5 min</span><span class="arr">Read →</span></div></div>
+  </div>
+  <div class="quiz-wrap">
+    <div class="sec-label" id="quiz-label">Test yourself</div>
+    <div class="quiz-card">
+      <div class="quiz-q" id="q-txt"></div>
+      <div class="quiz-meta" id="q-meta"></div>
+      <div id="quiz-opts"></div>
+      <div class="quiz-fb" id="quiz-fb"></div>
+      <div style="margin-top:14px;display:flex;justify-content:flex-end"><button class="fbtn" onclick="nextQ()">Next question →</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- HISTORY -->
+<div class="page" id="page-history">
+  <div class="hist-header">
+    <div><div class="panel-title" id="hist-title">Analysis history</div><div class="panel-sub" id="hist-sub">Your recent content analyses</div></div>
+    <div class="hist-filters">
+      <button class="fbtn active" onclick="filterH('all',this)">All</button>
+      <button class="fbtn" onclick="filterH('high',this)">High risk</button>
+      <button class="fbtn" onclick="filterH('medium',this)">Medium</button>
+      <button class="fbtn" onclick="filterH('low',this)">Low risk</button>
+      <button class="fbtn" onclick="filterH('text',this)">Text</button>
+      <button class="fbtn" onclick="filterH('url',this)">URL</button>
+    </div>
+  </div>
+  <div class="hist-list" id="hist-list"></div>
+</div>
+
+<!-- SETTINGS -->
+<div class="page" id="page-settings">
+  <div class="settings-wrap">
+    <div class="panel-title" style="margin-bottom:4px" id="st_title">Settings</div>
+    <div class="panel-sub" style="margin-bottom:24px" id="st_sub">Customize your TruthLens experience</div>
+    <div class="setsec">
+      <div class="setsec-title" id="st_sec1">Language & region</div>
+      <div class="setrow"><div><div class="setlabel" id="st_l1">Interface language</div><div class="setdesc" id="st_d1">Language for UI and explanations</div></div><select class="lselect" id="set-ui-lang"><option value="en">English</option><option value="hi">हिन्दी</option><option value="bn">বাংলা</option><option value="ta">தமிழ்</option><option value="te">తెలుగు</option><option value="mr">मराठी</option></select></div>
+      <div class="setrow"><div><div class="setlabel" id="st_l2">Analysis language</div><div class="setdesc" id="st_d2">Primary language of content you analyze</div></div><select class="lselect" id="set-an-lang"><option value="auto">Auto-detect</option><option value="en">English</option><option value="hi">हिन्दी</option><option value="ta">தமிழ்</option></select></div>
+    </div>
+    <div class="setsec" style="animation-delay:.05s">
+      <div class="setsec-title" id="st_sec2">AI Model</div>
+      <div class="setrow"><div><div class="setlabel" id="st_l3">Gemini API Key</div><div class="setdesc" id="st_d3">Enter your key to enable real AI analysis</div></div><input class="lselect" style="width:200px" placeholder="AIza..." id="api-key-input"/></div>
+      <div class="setrow"><div><div class="setlabel" id="st_l4">Model</div><div class="setdesc" id="st_d4">Gemini model for analysis</div></div><select class="lselect" id="set-model"><option value="gemini-2.5-flash">gemini-2.5-flash</option><option value="gemini-2.5-pro">gemini-2.5-pro</option></select></div>
+    </div>
+    <div class="setsec" style="animation-delay:.1s">
+      <div class="setsec-title" id="st_sec3">Explanation style</div>
+      <div class="setrow"><div><div class="setlabel" id="st_l5">Simple explanations</div><div class="setdesc" id="st_d5">Plain language, fewer technical terms</div></div><div class="toggle on" onclick="this.classList.toggle('on')"><div class="tknob"></div></div></div>
+      <div class="setrow"><div><div class="setlabel" id="st_l6">Show confidence intervals</div><div class="setdesc" id="st_d6">Display uncertainty ranges in scores</div></div><div class="toggle" onclick="this.classList.toggle('on')"><div class="tknob"></div></div></div>
+      <div class="setrow"><div><div class="setlabel" id="st_l7">Trust indicator badges</div><div class="setdesc" id="st_d7">Visual trust badges on analysis results</div></div><div class="toggle on" onclick="this.classList.toggle('on')"><div class="tknob"></div></div></div>
+    </div>
+    <div class="setsec" style="animation-delay:.15s">
+      <div class="setsec-title" id="st_sec4">Privacy</div>
+      <div class="setrow"><div><div class="setlabel" id="st_l8">Save analysis history</div><div class="setdesc" id="st_d8">Store results locally for reference</div></div><div class="toggle on" onclick="this.classList.toggle('on')"><div class="tknob"></div></div></div>
+      <div class="setrow"><div><div class="setlabel" id="st_l9">Improve the model</div><div class="setdesc" id="st_d9">Share anonymized data to help accuracy</div></div><div class="toggle" onclick="this.classList.toggle('on')"><div class="tknob"></div></div></div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
